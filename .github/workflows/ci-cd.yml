@@ -40,9 +40,3 @@ jobs:
       # Push the Docker image to Docker Hub
       - name: Push Docker Image
         run: docker push alakerkeni/my-docker-app:latest
-
-      # (Optional) Deploy to Kubernetes using your deployment manifests
-      - name: Deploy to Kubernetes
-        run: |
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig
-          kubectl --kubeconfig=kubeconfig apply -f k8s/deployment.yaml
