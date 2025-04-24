@@ -3,10 +3,8 @@ services:
   web:
     image: nginx:alpine
     ports:
-      - "8081:80"
-    volumes:
-      - ./web-content:/usr/share/nginx/html
+      - "${APP_PORT}:80"
+    env_file:
+      - .env
   redis:
     image: redis:alpine
-    ports:
-      - "6379:6379"
